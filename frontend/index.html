@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexsoft Blog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <main class="app-shell">
+
+        <header class="hero-section">
+            <p class="eyebrow">Nexsoft Internship Project</p>
+            <h1>Nexsoft Blog</h1>
+            <p class="hero-text">
+                A full-stack blog website with JWT authentication, protected routes, and MongoDB storage.
+            </p>
+        </header>
+
+        <section class="auth-grid" id="authSection">
+
+            <div class="card">
+                <h2>Register</h2>
+
+                <input type="text" id="registerName" placeholder="Name">
+                <input type="email" id="registerEmail" placeholder="Email">
+                <input type="password" id="registerPassword" placeholder="Password">
+
+                <button id="registerBtn">Create Account</button>
+                <p class="message-text" id="registerMessage"></p>
+            </div>
+
+            <div class="card">
+                <h2>Login</h2>
+
+                <input type="email" id="loginEmail" placeholder="Email">
+                <input type="password" id="loginPassword" placeholder="Password">
+
+                <button id="loginBtn">Login</button>
+                <p class="message-text" id="loginMessage"></p>
+            </div>
+
+        </section>
+
+        <section class="dashboard-section" id="dashboardSection">
+
+            <div class="dashboard-header">
+                <div>
+                    <p class="eyebrow">Dashboard</p>
+                    <h2 id="welcomeTitle">Welcome</h2>
+                </div>
+
+                <button class="secondary-btn" id="logoutBtn">Logout</button>
+            </div>
+
+            <div class="card">
+                <h2>Create Blog Post</h2>
+
+                <input type="text" id="postTitle" placeholder="Post title">
+                <input type="text" id="postCategory" placeholder="Category">
+
+                <textarea id="postContent" placeholder="Write your blog content..."></textarea>
+
+                <button id="createPostBtn">Publish Post</button>
+                <p class="message-text" id="postMessage"></p>
+            </div>
+
+        </section>
+
+        <section class="posts-section">
+            <div class="section-heading">
+                <p class="eyebrow">Published Posts</p>
+                <h2>Latest Blogs</h2>
+            </div>
+
+            <div class="posts-grid" id="postsGrid"></div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
