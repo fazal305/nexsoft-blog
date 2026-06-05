@@ -10,15 +10,11 @@ This project allows users to register, login, create blog posts, edit their own 
 
 Frontend:
 
-(Add GitHub Pages URL after deployment)
-
 ```text
 https://fazal305.github.io/nexsoft-blog/
 ```
 
 Backend API:
-
-(Add Render URL after deployment)
 
 ```text
 https://your-backend-url.onrender.com
