@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:5000/api";
+const apiUrl = "https://nexsoft-blog.onrender.com/api";
 
 const authSection = document.getElementById("authSection");
 const dashboardSection = document.getElementById("dashboardSection");
