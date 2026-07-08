@@ -1,10 +1,8 @@
-# Nexsoft Blog Application
+# Nexsoft Blog
 
-A Full Stack Blog Application built using Node.js, Express.js, MongoDB Atlas, JWT Authentication, and Vanilla JavaScript.
+A full-stack blog application built with Node.js, Express, MongoDB Atlas, JWT authentication, and vanilla JavaScript.
 
-This project allows users to register, login, create blog posts, edit their own posts, delete their own posts, and view all published blog posts through a responsive frontend interface.
-
----
+The project lets users register, log in, create posts, edit their own posts, delete their own posts, and browse published articles through a responsive frontend.
 
 ## Live Demo
 
@@ -16,238 +14,142 @@ Backend API:
 
 https://nexsoft-blog.onrender.com
 
----
+## Repository
 
-## GitHub Repository
-
-```text
 https://github.com/fazal305/nexsoft-blog
-```
-
----
 
 ## Features
 
-### Authentication
-
-* User Registration
-* User Login
-* Password Hashing using bcrypt
-* JWT Authentication
-* Protected Routes
-* Logout Functionality
-
-### Blog Management
-
-* Create Blog Posts
-* View All Blog Posts
-* View Individual Blog Posts
-* Edit Own Blog Posts
-* Delete Own Blog Posts
-
-### Security
-
-* Password Encryption
-* JWT Token Verification
-* Protected CRUD Operations
-* Author Ownership Validation
-
-### User Experience
-
-* Responsive Design
-* Professional UI
-* Validation Messages
-* Loading States
-* Mobile Friendly Layout
-
----
+- User registration and login
+- Password hashing with bcryptjs
+- JWT-based authentication
+- Protected create, update, and delete routes
+- Author ownership checks for post edits and deletes
+- Public post listing
+- Responsive frontend interface
+- Loading, success, and error states
+- MongoDB Atlas persistence through Mongoose
 
 ## Tech Stack
 
-### Frontend
+Frontend:
 
-* HTML5
-* CSS3
-* Vanilla JavaScript
+- HTML5
+- CSS3
+- Vanilla JavaScript
 
-### Backend
+Backend:
 
-* Node.js
-* Express.js
-
-### Database
-
-* MongoDB Atlas
-* Mongoose
-
-### Authentication
-
-* JSON Web Tokens (JWT)
-* bcryptjs
-
----
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
+- JSON Web Tokens
+- bcryptjs
 
 ## Project Structure
 
 ```text
-nexsoft-blog
-│
-├── frontend
-│   ├── index.html
-│   ├── styles.css
-│   └── app.js
-│
-├── backend
-│   ├── config
-│   ├── controllers
-│   ├── middleware
-│   ├── models
-│   ├── routes
-│   ├── .env.example
-│   ├── package.json
-│   └── server.js
-│
-├── README.md
-└── .gitignore
+nexsoft-blog/
+|-- index.html
+|-- styles.css
+|-- app.js
+|-- README.md
+|-- .gitignore
+`-- backend/
+    |-- server.js
+    |-- package.json
+    |-- package-lock.json
+    |-- .env.example
+    |-- config/
+    |   `-- db.js
+    |-- controllers/
+    |   |-- authController.js
+    |   `-- postController.js
+    |-- middleware/
+    |   `-- authMiddleware.js
+    |-- models/
+    |   |-- Post.js
+    |   `-- User.js
+    `-- routes/
+        |-- authRoutes.js
+        `-- postRoutes.js
 ```
 
----
+## Run Locally
 
-## Installation
-
-### Clone Repository
-
-```bash
-git clone https://github.com/fazal305/nexsoft-blog.git
-
-cd nexsoft-blog
-```
-
-### Install Backend Dependencies
+Install backend dependencies:
 
 ```bash
 cd backend
-
 npm install
 ```
 
-### Configure Environment Variables
-
-Create:
-
-```text
-backend/.env
-```
-
-Using:
+Create `backend/.env`:
 
 ```env
 PORT=5000
-
 MONGODB_URI=your_mongodb_connection_string
-
 JWT_SECRET=your_jwt_secret
-
 JWT_EXPIRES_IN=7d
 ```
 
-### Run Backend
+Start the backend:
 
 ```bash
 npm run dev
 ```
 
-Server:
+Open the frontend:
 
 ```text
-http://localhost:5000
+index.html
 ```
 
-### Run Frontend
-
-Open:
+The frontend currently points to the deployed API:
 
 ```text
-frontend/index.html
+https://nexsoft-blog.onrender.com/api
 ```
 
-in your browser.
-
----
+Change `apiUrl` in `app.js` if you want to test against a local backend.
 
 ## API Routes
 
-### Authentication
+Authentication:
 
 ```http
 POST /api/auth/register
-```
-
-```http
 POST /api/auth/login
+GET  /api/auth/me
 ```
 
-```http
-GET /api/auth/me
-```
-
-### Blog Posts
+Posts:
 
 ```http
-GET /api/posts
-```
-
-```http
-GET /api/posts/:id
-```
-
-```http
-POST /api/posts
-```
-
-```http
-PUT /api/posts/:id
-```
-
-```http
+GET    /api/posts
+GET    /api/posts/:id
+POST   /api/posts
+PUT    /api/posts/:id
 DELETE /api/posts/:id
 ```
 
----
+## What I Practiced
 
-## Learning Outcomes
-
-This project demonstrates:
-
-* REST API Development
-* JWT Authentication
-* MongoDB Integration
-* Backend Security
-* Protected Routes
-* Full Stack Development
-* CRUD Operations
-* Frontend and Backend Integration
-
----
+- Designing REST API routes for authentication and blog content
+- Protecting backend routes with JWT middleware
+- Hashing passwords before storing users
+- Validating post ownership before updates and deletes
+- Connecting a static frontend to a deployed API
+- Rendering user-generated content safely in the browser
 
 ## Author
 
 Fazal Abbas
 
-GitHub:
-
-```text
-https://github.com/fazal305
-```
-
-LinkedIn:
-
-```text
-https://www.linkedin.com/in/fazal-abbas-4653dg86
-```
-
----
+- GitHub: https://github.com/fazal305
+- LinkedIn: https://www.linkedin.com/in/fazal-abbas-4653dg86
 
 ## License
 
-This project is created for educational and internship purposes.
+This project is open source for learning and portfolio use.

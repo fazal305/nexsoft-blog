@@ -1,88 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A full-stack blog app with JWT authentication, MongoDB storage, protected post management, and a responsive vanilla JavaScript frontend."
+    />
     <title>Nexsoft Blog</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <main class="app-shell">
+      <header class="hero-section">
+        <p class="eyebrow">Nexsoft Full Stack Project</p>
+        <h1>Nexsoft Blog</h1>
+        <p class="hero-text">
+          A JWT-authenticated blog platform with protected post management,
+          MongoDB persistence, and a responsive JavaScript frontend.
+        </p>
+      </header>
 
-        <header class="hero-section">
-            <p class="eyebrow">Nexsoft Internship Project</p>
-            <h1>Nexsoft Blog</h1>
-            <p class="hero-text">
-                A full-stack blog website with JWT authentication, protected routes, and MongoDB storage.
-            </p>
-        </header>
+      <section
+        class="auth-grid"
+        id="authSection"
+        aria-label="Authentication forms"
+      >
+        <div class="card">
+          <h2>Create Account</h2>
+          <p class="card-subtitle">
+            Register to publish and manage your own posts.
+          </p>
 
-        <section class="auth-grid" id="authSection">
+          <label for="registerName">Name</label>
+          <input
+            type="text"
+            id="registerName"
+            placeholder="Fazal Abbas"
+            autocomplete="name"
+          />
 
-            <div class="card">
-                <h2>Register</h2>
+          <label for="registerEmail">Email</label>
+          <input
+            type="email"
+            id="registerEmail"
+            placeholder="name@example.com"
+            autocomplete="email"
+          />
 
-                <input type="text" id="registerName" placeholder="Name">
-                <input type="email" id="registerEmail" placeholder="Email">
-                <input type="password" id="registerPassword" placeholder="Password">
+          <label for="registerPassword">Password</label>
+          <input
+            type="password"
+            id="registerPassword"
+            placeholder="Minimum 6 characters"
+            autocomplete="new-password"
+          />
 
-                <button id="registerBtn">Create Account</button>
-                <p class="message-text" id="registerMessage"></p>
-            </div>
+          <button id="registerBtn" type="button">Create Account</button>
+          <p class="message-text" id="registerMessage"></p>
+        </div>
 
-            <div class="card">
-                <h2>Login</h2>
+        <div class="card">
+          <h2>Login</h2>
+          <p class="card-subtitle">
+            Sign in to create, edit, and delete your posts.
+          </p>
 
-                <input type="email" id="loginEmail" placeholder="Email">
-                <input type="password" id="loginPassword" placeholder="Password">
+          <label for="loginEmail">Email</label>
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="name@example.com"
+            autocomplete="email"
+          />
 
-                <button id="loginBtn">Login</button>
-                <p class="message-text" id="loginMessage"></p>
-            </div>
+          <label for="loginPassword">Password</label>
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Your password"
+            autocomplete="current-password"
+          />
 
-        </section>
+          <button id="loginBtn" type="button">Login</button>
+          <p class="message-text" id="loginMessage"></p>
+        </div>
+      </section>
 
-        <section class="dashboard-section" id="dashboardSection">
+      <section class="dashboard-section" id="dashboardSection">
+        <div class="dashboard-header">
+          <div>
+            <p class="eyebrow">Dashboard</p>
+            <h2 id="welcomeTitle">Welcome</h2>
+          </div>
 
-            <div class="dashboard-header">
-                <div>
-                    <p class="eyebrow">Dashboard</p>
-                    <h2 id="welcomeTitle">Welcome</h2>
-                </div>
+          <button class="secondary-btn" id="logoutBtn" type="button">
+            Logout
+          </button>
+        </div>
 
-                <button class="secondary-btn" id="logoutBtn">Logout</button>
-            </div>
+        <div class="card">
+          <h2>Create Blog Post</h2>
+          <p class="card-subtitle">
+            Write a new post or update an existing one.
+          </p>
 
-            <div class="card">
-                <h2>Create Blog Post</h2>
+          <label for="postTitle">Post title</label>
+          <input type="text" id="postTitle" placeholder="Post title" />
 
-                <input type="text" id="postTitle" placeholder="Post title">
-                <input type="text" id="postCategory" placeholder="Category">
+          <label for="postCategory">Category</label>
+          <input
+            type="text"
+            id="postCategory"
+            placeholder="Development, Design, Career"
+          />
 
-                <textarea id="postContent" placeholder="Write your blog content..."></textarea>
+          <label for="postContent">Content</label>
+          <textarea
+            id="postContent"
+            placeholder="Write your blog content..."
+          ></textarea>
 
-                <button id="createPostBtn">Publish Post</button>
-                <p class="message-text" id="postMessage"></p>
-            </div>
+          <button id="createPostBtn" type="button">Publish Post</button>
+          <p class="message-text" id="postMessage"></p>
+        </div>
+      </section>
 
-        </section>
+      <section class="posts-section">
+        <div class="section-heading">
+          <p class="eyebrow">Published Posts</p>
+          <h2>Latest Blogs</h2>
+        </div>
 
-        <section class="posts-section">
-            <div class="section-heading">
-                <p class="eyebrow">Published Posts</p>
-                <h2>Latest Blogs</h2>
-            </div>
-
-            <div class="posts-grid" id="postsGrid"></div>
-        </section>
-
+        <div class="posts-grid" id="postsGrid"></div>
+      </section>
     </main>
 
     <script src="app.js"></script>
-
-</body>
-
+  </body>
 </html>
