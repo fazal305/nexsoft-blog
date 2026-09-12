@@ -119,7 +119,7 @@ async function createPost() {
             loadPosts();
         }
     } catch (error) {
-        showMessage(postMessage, error.message, "error");
+        handleRequestError(postMessage, error);
     }
 }
 
@@ -145,7 +145,7 @@ async function updatePost() {
         clearPostForm();
         loadPosts();
     } catch (error) {
-        showMessage(postMessage, error.message, "error");
+        handleRequestError(postMessage, error);
     }
 }
 
@@ -165,7 +165,7 @@ async function deletePost(postId) {
         showMessage(postMessage, "Post deleted successfully.", "success");
         loadPosts();
     } catch (error) {
-        showMessage(postMessage, error.message, "error");
+        handleRequestError(postMessage, error);
     }
 }
 
@@ -302,10 +302,27 @@ async function apiRequest(endpoint, options = {}) {
     const data = await response.json();
 
     if (!response.ok) {
-        throw new Error(data.message || "Request failed. Please try again.");
+        const error = new Error(data.message || "Request failed. Please try again.");
+        error.status = response.status;
+        throw error;
     }
 
     return data;
+}
+
+function handleRequestError(element, error) {
+    if (error.status === 401) {
+        showMessage(element, "Your session has expired — please log in again.", "error");
+        logoutUser();
+        return;
+    }
+
+    if (error.status === 403) {
+        showMessage(element, "You don't have permission to do that.", "error");
+        return;
+    }
+
+    showMessage(element, error.message, "error");
 }
 
 function getPostFormData() {
