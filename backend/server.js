@@ -17,25 +17,21 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Auth routes
 app.use("/api/auth", authRoutes);
-
-// Post routes
 app.use("/api/posts", postRoutes);
 
 app.get("/", function (req, res) {
-    res.json({
-        message: "Nexsoft Blog API is running successfully"
-    });
+  res.json({
+    message: "Nexsoft Blog API is running successfully",
+  });
 });
 
-// Start server after database connects
 async function startServer() {
-    await connectDatabase();
+  await connectDatabase();
 
-    app.listen(PORT, function () {
-        console.log(`Server is running on port ${PORT}`);
-    });
+  app.listen(PORT, function () {
+    console.log(`Server is running on port ${PORT}`);
+  });
 }
 
 startServer();
